@@ -1,6 +1,6 @@
 # Hostpot wifi pour Raspberry avec RaspAP
 
-TODO
+Modifié par BugsBunny
 
 ## Installation
 
@@ -23,7 +23,7 @@ TODO
 
 ## Authors & contributors
 
-L'add-on est réalisé par [ArminasTV][Youtube]. Retrouvez moi sur mon [Twitter][Twitter], [Facebook][Facebook] et [Instagram][Instagram].
+L'add-on est dérivé du Travail de [ArminasTV][Youtube]. Retrouvez le sur [Twitter][Twitter], [Facebook][Facebook] et [Instagram][Instagram].
 
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
