@@ -19,7 +19,9 @@ if ! bashio::fs.directory_exists "${DIR}"; then
     mkdir -p "${DIR_RASPAP}/networking"
     mkdir -p "${DIR}/vnstat" 
     mkdir -p "${DIR}/dhcpcd"
-    mkdir -p "${DIR}/hostapd" 
+    mkdir -p "${DIR}/hostapd"
+    echo "Log HOSTAPD" >> /config/hotspot_wifi/hostapd/hostapd.log
+    ln -s /config/hotspot_wifi/hostapd/hostapd.log /tmp/hostapd.log
     mkdir -p "${DIR}/dnsmasq" 
 
     mv /var/www/html/raspap.php "${DIR_RASPAP}/raspap.php"

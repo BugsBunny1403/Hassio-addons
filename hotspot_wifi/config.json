@@ -3,11 +3,12 @@
     "version": "2.0",
     "slug": "hotspot_wifi", 
     "description": "Addon Hotspot wifi with raspap-webgui",
-    "url": "https://github.com/ArminasTV/Hassio-addons/tree/master/hotspot_wifi",
+    "url": "https://github.com/BugsBunny1403/Hassio-addons/tree/master/hotspot_wifi",
     "webui": "[PROTO:ssl]://[HOST]:[PORT:80]",
     "startup": "application",
     "arch": ["armv7"],
     "map": ["config:rw"],
+    
     "ports": { 
       "80/tcp": 5250
     },
