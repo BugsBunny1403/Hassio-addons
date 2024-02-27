@@ -9,7 +9,7 @@
     "arch": ["armv7"],
     "map": ["config:rw"],
     "ports": { 
-      "80/tcp": 80
+      "80/tcp": 5250
     },
     "ports_description": { 
       "80/tcp": "Web interface" 
