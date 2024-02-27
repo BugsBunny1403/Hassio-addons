@@ -1,6 +1,6 @@
 {
     "name": "Hotspot wifi pour RPI",
-    "version": "2.0",
+    "version": "2.1",
     "slug": "hotspot_wifi", 
     "description": "Addon Hotspot wifi with raspap-webgui",
     "url": "https://github.com/BugsBunny1403/Hassio-addons/tree/master/hotspot_wifi",
