@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: PrusaSlicer NoVNC
+# Runs PrusaSlicer
+# ==============================================================================
+bashio::net.wait_for 4325
+bashio::log.info "Starting PrusaSlicer..."
+
+export DISPLAY=:0
+exec /bin/bash -c '/slic3r/slic3r-dist/prusa-slicer --datadir /config/prusaslicer/.config/PrusaSlicer/'

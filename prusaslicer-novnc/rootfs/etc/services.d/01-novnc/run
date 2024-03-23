@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: PrusaSlicer NoVNC
+# Runs NoVNC
+# ==============================================================================
+set -e
+
+bashio::net.wait_for 5900
+
+bashio::log.info 'Starting noVNC...'
+server="localhost:5900"
+bashio::log.info "Connecting to VNC $server"
+# shellcheck disable=SC2086
+exec /noVNC/utils/novnc_proxy --listen 4325 --vnc $server

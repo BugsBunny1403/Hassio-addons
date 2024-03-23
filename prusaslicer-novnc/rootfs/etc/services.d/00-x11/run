@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: PrusaSlicer NoVNC
+# Runs X11
+# ==============================================================================
+bashio::log.info "Starting X11 server..."
+
+exec /usr/bin/Xtigervnc -desktop "Prusaslicer" -localhost -rfbport 5900 -SecurityTypes None -AlwaysShared -AcceptKeyEvents -AcceptPointerEvents -AcceptSetDesktopSize -SendCutText -AcceptCutText :0
