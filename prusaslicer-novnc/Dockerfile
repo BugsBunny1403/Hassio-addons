@@ -1,5 +1,5 @@
 # Get and install Easy noVNC.
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:5.2.3
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/aarch64:5.2.3
 
 # hadolint ignore=DL3006
 FROM $BUILD_FROM AS NO_VNC
@@ -76,7 +76,7 @@ RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated
 
 # Install Prusaslicer
 # Many of the commands below were derived and pulled from previous work by dmagyar on GitHub.
-# Here's their Dockerfile for reference https://github.com/dmagyar/prusaslicer-vnc-docker/blob/main/Dockerfile.amd64
+# Here's their Dockerfile for reference https://github.com/dmagyar/prusaslicer-vnc-docker/blob/main/Dockerfile.aarch64
 WORKDIR /slic3r
 COPY get_latest_prusaslicer_release.sh /slic3r/
 
