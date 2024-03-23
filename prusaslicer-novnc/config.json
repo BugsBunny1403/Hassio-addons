@@ -4,7 +4,6 @@
   "version": "1.0",
   "description": "PrusaSlicer NoVNC",
   "url": "https://github.com/marciogranzotto/addon-prusaslicer-novnc",
-  "image": "marciogranzotto/image-{arch}-addon-prusaslicer-novnc",
   "arch": ["aarch64"],
   "startup": "services",
   "ingress": "true",
