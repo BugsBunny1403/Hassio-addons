@@ -24,7 +24,7 @@
   "ports_description": {
     "4325/tcp": "NoVNC port"
   },
-  "map": ["ssl", "config:rw", "media:rw", "share:rw"],
+  "map": ["ssl", "config:rw", "media:rw", "share:rw", "slic3r:rw"],
   "options": {
     "log_level": "info"
   },
