@@ -78,22 +78,21 @@ RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated
 # Many of the commands below were derived and pulled from previous work by dmagyar on GitHub.
 # Here's their Dockerfile for reference https://github.com/dmagyar/prusaslicer-vnc-docker/blob/main/Dockerfile.aarch64
 WORKDIR /slic3r
-COPY get_latest_prusaslicer_release.sh /slic3r/
-COPY tag_latest_prusaslicer.sh /slic3r/
+COPY update_latest_prusaslicer.sh /slic3r/
 
 # hadolint ignore=SC2086
-RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
-    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
+RUN bash /slic3r/update_latest_prusaslicer.sh \
+#    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
 # RUN slic3rReleaseName=$(/slic3r/tag_latest_prusaslicer.sh) \
-    && curl -sSL ${latestSlic3r} > ps.tar.bz2 \
-    # && rm -f /slic3r/releaseInfo.json \
-    # && mkdir -p /slic3r/slic3r-dist \
-    && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
-    #&& rm -f /slic3r/ps.tar.bz2 \
-    #&& rm -rf /var/lib/apt/lists/* \
-    #&& apt-get autoclean \
-    #&& mkdir -p /share/prints/ \
-    && chmod +x /slic3r/slic3r-dist/prusa-slicer \
+#    && curl -sSL ${latestSlic3r} > ps.tar.bz2 \
+#    && rm -f /slic3r/releaseInfo.json \
+#    && mkdir -p /slic3r/slic3r-dist \
+#    && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
+#    && rm -f /slic3r/ps.tar.bz2 \
+#    && rm -rf /var/lib/apt/lists/* \
+#    && apt-get autoclean \
+#    && mkdir -p /share/prints/ \
+#    && chmod +x /slic3r/slic3r-dist/prusa-slicer \
     && locale-gen fr_FR
 
 #RUN curl -sSL https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.7.2/PrusaSlicer-2.7.2%2Blinux-arm64-GTK3-202402291318.tar.bz2 > ps.tar.bz2 \

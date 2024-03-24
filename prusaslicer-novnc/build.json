@@ -1,6 +1,6 @@
 {
   "args": {},
   "build_from": {
-    "aarch64": "ghcr.io/hassio-addons/debian-base/aarch64:5.2.3"
+    "aarch64": "ghcr.io/hassio-addons/debian-base/aarch64:7.3.3"
   }
 }
