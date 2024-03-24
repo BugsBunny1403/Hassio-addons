@@ -83,23 +83,23 @@ COPY tag_latest_prusaslicer.sh /slic3r/
 
 # hadolint ignore=SC2086
 RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
-    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
-    && slic3rReleaseName=$(/slic3r/tag_latest_prusaslicer.sh) \
-    && curl -sSL ${latestSlic3r} > ${slic3rReleaseName} \
-#RUN curl -sSL https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.7.2/PrusaSlicer-2.7.2%2Blinux-arm64-GTK3-202402291318.tar.bz2 > ps.tar.bz2 \
+RUN latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
+RUN slic3rReleaseName=$(/slic3r/tag_latest_prusaslicer.sh) \
+RUN curl -sSL ${latestSlic3r} > ${slic3rReleaseName} \
     && rm -f /slic3r/releaseInfo.json \
     && mkdir -p /slic3r/slic3r-dist \
     && tar -xjf ${slic3rReleaseName} -C /slic3r/slic3r-dist --strip-components 1 \
-#    && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
     && rm -f /slic3r/${slic3rReleaseName} \
-#    && rm -f /slic3r/ps.tar.bz2 \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoclean \
-    && mkdir -p /slic3r \
     && mkdir -p /share/prints/ \
     && chmod +x /slic3r/slic3r-dist/prusa-slicer \
-    && locale-gen fr_FR 
-   
+    && locale-gen fr_FR
+
+#RUN curl -sSL https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.7.2/PrusaSlicer-2.7.2%2Blinux-arm64-GTK3-202402291318.tar.bz2 > ps.tar.bz2 \
+#    && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
+#    && rm -f /slic3r/ps.tar.bz2 \
+  
 
 # Copy root filesystem
 COPY rootfs /
