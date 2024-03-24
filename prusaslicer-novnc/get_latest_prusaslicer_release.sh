@@ -57,7 +57,7 @@ elif [[ "$1" == "url_ver" ]]; then
 
   # Note: Releases sometimes have hex-encoded ascii characters tacked on
   # So version '2.0.0+' might need to be requested as '2.0.0%2B' since GitHub returns that as the download URL
-  echo "${allReleases}" | jq --arg VERSION "$VER" -r '.[] | .assets[] | .browser_download_url | select(test("PrusaSlicer-" + $VERSION + "linux-arm64-(?!GTK3).+.tar.bz2"))'
+  echo "${allReleases}" | jq --arg VERSION "$VER" -r '.[] | .assets[] | .browser_download_url | select(test("PrusaSlicer-" + $VERSION + "linux-arm64-GTK3.+.tar.bz2"))'
 
 elif [[ "$1" == "name_ver" ]]; then
 

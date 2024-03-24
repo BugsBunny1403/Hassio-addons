@@ -79,12 +79,12 @@ RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated
 # Here's their Dockerfile for reference https://github.com/dmagyar/prusaslicer-vnc-docker/blob/main/Dockerfile.aarch64
 WORKDIR /slic3r
 COPY get_latest_prusaslicer_release.sh /slic3r/
+COPY tag_latest_prusaslicer.sh /slic3r/
 
 # hadolint ignore=SC2086
-ARG SLICER_VERSION="2.7.2"
 RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
-    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url name_ver $SLICER_VERSION) \
-    && slic3rReleaseName=$(/slic3r/get_latest_prusaslicer_release.sh name name_ver $SLICER_VERSION) \
+    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
+    && slic3rReleaseName=$(/slic3r/tag_latest_prusaslicer.sh) \
     && curl -sSL ${latestSlic3r} > ${slic3rReleaseName} \
 #RUN curl -sSL https://github.com/prusa3d/PrusaSlicer/releases/download/version_2.7.2/PrusaSlicer-2.7.2%2Blinux-arm64-GTK3-202402291318.tar.bz2 > ps.tar.bz2 \
     && rm -f /slic3r/releaseInfo.json \
@@ -99,17 +99,7 @@ RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
     && mkdir -p /share/prints/ \
     && chmod +x /slic3r/slic3r-dist/prusa-slicer \
     && locale-gen fr_FR 
-
-#ARG SLICER_VERSION="2.7.2"
-#    
-
-
-#    
-#    
-#    
-#    
-#    &
-#     
+   
 
 # Copy root filesystem
 COPY rootfs /
