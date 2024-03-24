@@ -90,8 +90,8 @@ RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
     # && mkdir -p /slic3r/slic3r-dist \
     && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
     && rm -f /slic3r/ps.tar.bz2 \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get autoclean \
+    #&& rm -rf /var/lib/apt/lists/* \
+    #&& apt-get autoclean \
     && mkdir -p /share/prints/ \
     && chmod +x /slic3r/slic3r-dist/prusa-slicer \
     && locale-gen fr_FR
