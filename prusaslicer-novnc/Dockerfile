@@ -83,9 +83,9 @@ COPY tag_latest_prusaslicer.sh /slic3r/
 
 # hadolint ignore=SC2086
 RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
-RUN latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
+    && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
 # RUN slic3rReleaseName=$(/slic3r/tag_latest_prusaslicer.sh) \
-RUN curl -sSL ${latestSlic3r} > ps.tar.bz2 \
+    && curl -sSL ${latestSlic3r} > ps.tar.bz2 \
     # && rm -f /slic3r/releaseInfo.json \
     # && mkdir -p /slic3r/slic3r-dist \
     && tar -xjf ps.tar.bz2 -C /slic3r/slic3r-dist --strip-components 1 \
