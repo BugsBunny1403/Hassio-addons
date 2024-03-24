@@ -27,29 +27,30 @@ if [[ -z "${LATEST_VERSION}" ]]; then
 
 fi
 
+echo "${LATEST_VERSION}"
 
-# Run from the git repository
-cd "$(dirname "$0")";
+# # Run from the git repository
+# cd "$(dirname "$0")";
 
-# Get the latest tag (by tag date, not commit) in our repository
-LATEST_GIT_TAG=$(git for-each-ref refs/tags --sort=-creatordate --format='%(refname:short)' --count=1)
+# # Get the latest tag (by tag date, not commit) in our repository
+# LATEST_GIT_TAG=$(git for-each-ref refs/tags --sort=-creatordate --format='%(refname:short)' --count=1)
 
-if [[ "${LATEST_GIT_TAG}" != "${LATEST_VERSION}" ]]; then
+# if [[ "${LATEST_GIT_TAG}" != "${LATEST_VERSION}" ]]; then
 
-  echo "Update needed. Latest tag ver: ${LATEST_GIT_TAG} != upstream ver: ${LATEST_VERSION} .."
-  git tag "${LATEST_VERSION}"
+#   echo "Update needed. Latest tag ver: ${LATEST_GIT_TAG} != upstream ver: ${LATEST_VERSION} .."
+#   git tag "${LATEST_VERSION}"
 
-  if [[ "$GH_ACTION" != "" ]]; then
-    echo "${LATEST_VERSION}" > ${GITHUB_WORKSPACE}/VERSION
-    git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY --tags
-    exit 0
-  else
-    git push --tags
-  fi    
+#   if [[ "$GH_ACTION" != "" ]]; then
+#     echo "${LATEST_VERSION}" > ${GITHUB_WORKSPACE}/VERSION
+#     git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY --tags
+#     exit 0
+#   else
+#     git push --tags
+#   fi    
 
-else
+# else
 
-  echo "Latest tag ver: ${LATEST_GIT_TAG} == upstream ver: ${LATEST_VERSION} -- no update"
-  exit 0
+#   echo "Latest tag ver: ${LATEST_GIT_TAG} == upstream ver: ${LATEST_VERSION} -- no update"
+#   exit 0
 
-fi
+# fi
